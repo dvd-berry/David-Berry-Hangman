@@ -21,6 +21,58 @@ private:
     int guessesWrong;
     int guessesRight;
 
+    //Variables for gallows
+    const string gallows[8] = {"", R"(  *****     
+  *   *     
+      *     
+      *     
+      *     
+      *     
+************
+)", R"(  *****     
+  *   *     
+  O   *     
+      *     
+      *     
+      *     
+************
+)",R"(  *****     
+  *   *     
+  O   *     
+  |   *     
+      *     
+      *     
+************
+)",R"(  *****     
+  *   *     
+  O   *     
+ /|   *     
+      *     
+      *     
+************
+)",R"(  *****     
+  *   *     
+  O   *     
+ /|\  *     
+      *     
+      *     
+************
+)",R"(  *****     
+  *   *     
+  O   *     
+ /|\  *     
+ /    *     
+      *     
+************
+)",R"(  *****     
+  *   *     
+  O   *     
+ /|\  *     
+ / \  *     
+      *     
+************
+)",};
+
 
     void toUppercase(char& c) {
         // Checks for lowercase letter and capitalizes using ASCII
@@ -33,24 +85,30 @@ private:
         cout << "\nTotal guesses: " << guessesRight + guessesWrong << endl;
         cout << "Correct guesses: " << guessesRight << endl;
         cout << "Incorrect guesses: " << guessesWrong << endl;
-        cout << "Incorrect Letters: " << endl << endl;
+        cout << "Incorrect Letters: " << endl;
+
         int i = 0;
         bool allRight = true; // Checks if all letters guessed have been correct
         string incorrectLetters = "";
         for (char c : guesses) {
             if (targetWord.find(c) == string::npos) { // TRUE if the letter is not in the targetWord
+                if (i % 5 == 0 && i > 0) { // formatting
+                    incorrectLetters.pop_back(); //Removes the final comma
+                    incorrectLetters.pop_back();
+                    incorrectLetters += "\n";
+                }
                 incorrectLetters += c;
                 incorrectLetters += ", ";
                 ++i;
                 allRight = false;
             }
-            if (i % 5 == 0 && i > 0) // formatting
-                incorrectLetters += "\n";
+            
         }
         
         if(!incorrectLetters.empty()) {
         incorrectLetters.pop_back(); //Removes the final comma
         incorrectLetters.pop_back();
+        incorrectLetters += "\n";
         }
         cout << incorrectLetters;
         if(allRight)
@@ -60,6 +118,7 @@ private:
 
     void guessLetters() {
         while (true) {
+            cout << gallows[guessesWrong];
             cout << displayWord << endl;
             char letter = 0;
             string input;
@@ -99,9 +158,9 @@ private:
             }
             if(lettersCorrect == targetWord.length()) {
                 guessesRight++;
-                winGame();
+                cout << "You got it! The word was " << targetWord << "! No one had to die today." << endl;
+                endGame();
                 return;
-
             }
 
             if(correct) {
@@ -111,14 +170,19 @@ private:
             else {
                 cout << "Incorrect. " << letter << " is not in the word. " << endl;
                 guessesWrong++;
+                if (guessesWrong == 7) {
+                    cout << endl << gallows[7]; 
+                    cout << "John Doe's execution is complete. You go home to live with your guilt." << endl;
+                    endGame();
+                    return;
+                }
             }
 
             displayGuesses();
         }
         
     }
-    void winGame() {
-        cout << "You got it! The word was " << targetWord << "!" << endl;
+    void endGame() {
         cout << "\nTotal guesses: " << guessesRight + guessesWrong << endl;
         cout << "Correct guesses: " << guessesRight << endl;
         cout << "Incorrect guesses: " << guessesWrong << endl << endl;
@@ -190,7 +254,7 @@ public:
         cout << displayWord << endl; */ //check values
 
         while(true) {
-            cout << "You are going to guess a word. The word has " << targetWord.length() << " letters." << endl;
+            cout << "\nYou are going to guess a word. The word has " << targetWord.length() << " letters." << endl;
             guessLetters();
             if(!playAgain){
                 cout << "Thanks for playing!" << endl;

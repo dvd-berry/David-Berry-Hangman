@@ -35,3 +35,8 @@ I used a class so as to have a main function that was very clean. I kept the pro
 I implemented the lists of words that had been used, and letters that could be guessed so that I could have the most efficient big O run time of O(log(n)) for the needed functionality, so that my repetetive find() statements would not be on O(n) time as they would if I used a vector, linked list, or array.
 
 I took a minimalist commenting approach to explain any parts of the code that would not be intrinsically understandable based on variable names or logic, to make the files the cleanest they could be for future programmers, though I understand that commenting approach should be adjusted based on the needs of a team or according to coding standards for the team.
+
+
+*EDIT*
+I decided to add the gallows even though it went over the time. To see the version I submitted before the deadline and within the time limit, you can check the commit history. In the process, I also fixed an output formatting error that I found. With the gallows, I felt it made sense to add losing the game as a feature, giving the user 7 incorrect guesses, which is communicated to the user through the drawing. I realize this wasn't in the specifications, but it seemed obvious that we wouldn't the guy hanging there while we keep guessing, as users might get sick. This took an additional hour. Adding the gallows was relatively quick, the output issue was more demanding, as it took some time to repeatedly trigger the edge case during testing, similar to much of the debugging on this project.
+

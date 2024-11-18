@@ -4,6 +4,7 @@
 using namespace std;
 
 int main() {
+
     cout << "Welcome to Hangman! You're just in time for the execution!" << endl;
 
     string response;
