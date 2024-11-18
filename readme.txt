@@ -38,5 +38,9 @@ I took a minimalist commenting approach to explain any parts of the code that wo
 
 
 *EDIT*
-I decided to add the gallows even though it went over the time. To see the version I submitted before the deadline and within the time limit, you can check the commit history. In the process, I also fixed an output formatting error that I found. With the gallows, I felt it made sense to add losing the game as a feature, giving the user 7 incorrect guesses, which is communicated to the user through the drawing. I realize this wasn't in the specifications, but it seemed obvious that we wouldn't the guy hanging there while we keep guessing, as users might get sick. This took an additional hour. Adding the gallows was relatively quick, the output issue was more demanding, as it took some time to repeatedly trigger the edge case during testing, similar to much of the debugging on this project.
+I decided to add the gallows even though it went over the time. To see the version I submitted before the deadline and within the time limit, you can check the commit history. The previously submitted version can be found here:
+https://github.com/dvd-berry/David-Berry-Hangman/tree/e664b88247078d8a867d066b0483b3b356b837ef
+
+
+In the process, I also fixed an output formatting error that I found. With the gallows, I felt it made sense to add losing the game as a feature, giving the user 7 incorrect guesses, which is communicated to the user through the drawing. I realize this wasn't in the specifications, but it seemed obvious that we wouldn't the guy hanging there while we keep guessing, as users might get sick. This took an additional hour. Adding the gallows was relatively quick, the output issue was more demanding, as it took some time to repeatedly trigger the edge case during testing, similar to much of the debugging on this project.
 

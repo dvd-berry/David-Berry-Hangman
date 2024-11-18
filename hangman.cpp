@@ -173,6 +173,7 @@ private:
                 if (guessesWrong == 7) {
                     cout << endl << gallows[7]; 
                     cout << "John Doe's execution is complete. You go home to live with your guilt." << endl;
+                    cout << "The word was " << targetWord << "!" << endl;
                     endGame();
                     return;
                 }
@@ -183,9 +184,8 @@ private:
         
     }
     void endGame() {
-        cout << "\nTotal guesses: " << guessesRight + guessesWrong << endl;
-        cout << "Correct guesses: " << guessesRight << endl;
-        cout << "Incorrect guesses: " << guessesWrong << endl << endl;
+        cout << "\nTotal guesses: " << guessesRight + guessesWrong << endl << endl;
+
         string response;
         while (true) { // Guards for invalid input
             cout << "Would you like to play again? (yes/no) ";
