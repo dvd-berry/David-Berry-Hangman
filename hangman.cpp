@@ -105,11 +105,11 @@ private:
             }
 
             if(correct) {
-                cout << "Correct!" << endl;
+                cout << "Correct! " << letter << " is in the word." << endl;
                 guessesRight++;
             }
             else {
-                cout << "Incorrect." << endl;
+                cout << "Incorrect. " << letter << " is not in the word. " << endl;
                 guessesWrong++;
             }
 
