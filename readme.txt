@@ -5,3 +5,8 @@ The g++ compiler can be downloaded here: https://github.com/msys2/msys2-installe
 
 A new PATH should then be created to point to C:\msys64\ucrt64\bin on windows.
 
+You will be prompted to open a terminal in which you can paste the following command:
+
+pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
+
+Accept all default settings
